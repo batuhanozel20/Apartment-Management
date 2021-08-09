@@ -246,7 +246,7 @@ if ($result->num_rows > 0) {
               <th  scope="col">Surname</th>	
               <th  scope="col">Phone Number</th>	
               <th  scope="col">E-Mail</th>	
-              <th  scope="col">Debth</th>	
+              <th  scope="col">Debt</th>	
               <th  scope="col">Move Out Date</th>	
              </tr>	
         </thead>	
@@ -286,7 +286,7 @@ if ($result->num_rows > 0) {
 
  <div id="content">
     <div id="tab9">
-    <h1>Debth</h1> 
+    <h1>Debt</h1> 
     <table  class="table table-bordered w-50 p-3 ">                     
      <thead>
             <tr >
@@ -295,7 +295,7 @@ if ($result->num_rows > 0) {
               <th  style="width: 2%" scope="col">Flat Number</th>
               <th  scope="col">Phone Number</th>
               <th  scope="col">E-Mail</th>
-              <th  scope="col">Fee Debth</th>
+              <th  scope="col">Debt</th>
               <th  scope="col">Last Payment</th>
              </tr>
         </thead>
