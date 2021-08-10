@@ -143,7 +143,7 @@
 <?php
     require('db.php');
     
-    if (isset($_REQUEST['userID'])) {
+    if (isset($_REQUEST['userName'])) {
         
        
         
@@ -159,8 +159,7 @@
         $Surname = stripslashes($_REQUEST['Surname']);
         $Surname = mysqli_real_escape_string($conn, $Surname);
         
-        $userID = stripslashes($_REQUEST['userID']);
-        $userID = mysqli_real_escape_string($conn, $userID);
+      
 
         $eMail = stripslashes($_REQUEST['eMail']);
         $eMail = mysqli_real_escape_string($conn, $eMail);
@@ -174,8 +173,8 @@
       
         
   
-        $query= "INSERT INTO `users` (`userID`, `password`, `Name`, `Surname`, `userName`, `eMail`, `phoneNo`, `doorNumber` )
-                     VALUES ('$userID', '" . md5($password) . "', '$Name', '$Surname', '$userName' , '$eMail', '$phoneNo', '$doorNumber')";
+        $query= "INSERT INTO `users` ( `password`, `Name`, `Surname`, `userName`, `eMail`, `phoneNo`, `doorNumber` )
+                     VALUES ( '" . md5($password) . "', '$Name', '$Surname', '$userName' , '$eMail', '$phoneNo', '$doorNumber')";
         $result= mysqli_query($conn, $query);
 
        
@@ -214,9 +213,7 @@
             <label  class="sName">Surname:</label>
             <input type="text" class="login-input" name="Surname" placeholder="Surname" required/>
             <br>
-            <label class="uID">User ID:</label>
-            <input type="password" class="login-input" name="userID" placeholder="UserID" required/>
-            <br>
+            
             <label class="mail">E-Mail:</label>
             <input type="email" class="login-input" name="eMail" placeholder="example@hotmail.com" required />
             <br>
