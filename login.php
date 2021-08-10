@@ -103,11 +103,16 @@ h3 {
         $query    = "SELECT * FROM `users` WHERE userName='$userName'
                      AND password='" . md5($password) . "'";
         $result = mysqli_query($conn, $query);
-        $rows = mysqli_num_rows($result);
-        if ($rows == 1) {
+        $rows = mysqli_fetch_array($result);
+        if ($rows["userType"]=="user") {
             $_SESSION['userName'] = $userName;
             
-            header("Location: dashboard.php");
+            header("Location: webNormal.php");
+          } elseif ($rows["userType"]=="admin") {
+            $_SESSION['userName'] = $userName;
+            
+            header("Location: web.php");
+
         } else {
             echo "<div class='form'>
                   <h3>Incorrect Username/password.</h3><br/>

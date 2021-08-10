@@ -143,11 +143,11 @@ BHAN Apartment </font></center>
     <li><a href="#" name="tab1">Announcements</a></li>
     <li><a href="#" name="tab2">Occupants</a></li>
     <li><a href="#" name="tab8">Moved Out</a></li>
-    <li><a href="#" name="tab9">Debth</a></li>
+    <li><a href="#" name="tab9">Debts</a></li>
     <li><a href="#" name="tab7">Flat</a></li>
     <li><a href="#" name="tab3">Apartment Budget</a></li>
     <li><a href="#" name="tab4">Staff</a></li>
-    <li><a href="#" name="tab5">Registeration</a></li>
+    <li><a href="#" name="tab5">Registration</a></li>
     <li><a href="#" name="tab6">Other Years' Apartment Budget</a></li>
 </ul>
 
@@ -184,7 +184,10 @@ if ($result->num_rows > 0) {
     </div>
 </table>
 <br>
-
+<div style="text-align:center;">
+       
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>
+       </div>
 
 </div> 
 
@@ -226,7 +229,10 @@ if ($result->num_rows > 0) {
     </div>
 </table>
 <br>   
+        <div style="text-align:center;">
        
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>
+       </div>
         
  </div>
 
@@ -240,7 +246,7 @@ if ($result->num_rows > 0) {
               <th  scope="col">Surname</th>	
               <th  scope="col">Phone Number</th>	
               <th  scope="col">E-Mail</th>	
-              <th  scope="col">Debth</th>	
+              <th  scope="col">Debt</th>	
               <th  scope="col">Move Out Date</th>	
              </tr>	
         </thead>	
@@ -270,14 +276,17 @@ if ($result->num_rows > 0) {
     </div>	
 </table>	
 <br>   	
-        
+        <div style="text-align:center;">	
+       	
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>	
+       </div>	
 
  </div>
  
 
  <div id="content">
     <div id="tab9">
-    <h1>Debth</h1> 
+    <h1>Debt</h1> 
     <table  class="table table-bordered w-50 p-3 ">                     
      <thead>
             <tr >
@@ -286,7 +295,7 @@ if ($result->num_rows > 0) {
               <th  style="width: 2%" scope="col">Flat Number</th>
               <th  scope="col">Phone Number</th>
               <th  scope="col">E-Mail</th>
-              <th  scope="col">Fee Debth</th>
+              <th  scope="col">Debt</th>
               <th  scope="col">Last Payment</th>
              </tr>
         </thead>
@@ -316,7 +325,11 @@ if ($result->num_rows > 0) {
     </div>
 </table>
 <br>   
+        <div style="text-align:center;">
        
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>
+       </div>
+        
  </div>
 
     
@@ -396,7 +409,10 @@ if ($result->num_rows > 0) {
 <br>
 
 
+        <div style="text-align:center;">
        
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>
+       </div>
         
  </div>
   
@@ -440,7 +456,10 @@ if ($result->num_rows > 0) {
     </div>
 </table>
 <br>  
-        
+        <div style="text-align:center;">
+      
+       <a class="btn btn-warning" href="login.php">LOGOUT</a>
+       </div>
         
  </div>
      
@@ -488,7 +507,12 @@ if ($result->num_rows > 0) {
 </table>
 <br>
         
-  
+    <div style="text-align:center;">
+    
+
+    <a class="btn btn-warning" href="login.php">LOGOUT</a>
+    
+        </div>
    
 
     </div>
