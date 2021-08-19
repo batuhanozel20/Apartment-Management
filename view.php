@@ -60,14 +60,11 @@ th {
 <th><strong>Occupant ID</strong></th>
 <th><strong>Name</strong></th>
 <th><strong>Surname</strong></th>
-<th><strong>Username</strong></th>
 <th><strong>Flat Number</strong></th>
-<th><strong>Fee Debth</strong></th>
 <th><strong>Phone Number</strong></th>
 <th><strong>E-Mail</strong></th>
 <th><strong>Move In Date</strong></th>
-<th><strong>Move Out Date</strong></th>
-<th><strong>Last Payment</strong></th>
+
 
 </tr>
 </thead>
@@ -75,26 +72,23 @@ th {
 
 <?php
 $count=1;
-$sel_query="SELECT * FROM occupants ORDER BY occID ASC;";
+$sel_query="SELECT * FROM users ORDER BY userID ASC;";
 $result = mysqli_query($conn,$sel_query);
 while($row = mysqli_fetch_assoc($result)) { ?>
 <tr><td align="center"><?php echo $count; ?></td>
 <td align="center"><?php echo $row["Name"]; ?></td>
 <td align="center"><?php echo $row["Surname"]; ?></td>
-<td align="center"><?php echo $row["userName"]; ?></td>
 <td align="center"><?php echo $row["doorNumber"]; ?></td>
-<td align="center"><?php echo $row["feeDebth"]; ?></td>
 <td align="center"><?php echo $row["phoneNo"]; ?></td>
 <td align="center"><?php echo $row["eMail"]; ?></td>
 <td align="center"><?php echo $row["moveInDate"]; ?></td>
-<td align="center"><?php echo $row["moveOutDate"]; ?></td>
-<td align="center"><?php echo $row["lastPayment"]; ?></td>
+
 
 <td align="center">
-<a href="update.php?id=<?php echo $row["occID"]; ?>">Edit</a>
+<a href="update.php?id=<?php echo $row["userID"]; ?>">Edit</a>
 </td>
 <td align="center">
-<a href="delete.php?id=<?php echo $row["occID"]; ?>">Delete</a>
+<a href="delete.php?id=<?php echo $row["userID"]; ?>">Delete</a>
 </td>
 </tr>
 <?php $count++; } ?>

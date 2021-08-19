@@ -196,7 +196,6 @@ if ($result->num_rows > 0) {
     <table  class="table table-bordered w-50 p-3 ">                     
      <thead>
             <tr >
-              <th  scope="col">ID</th>
               <th  scope="col">Name</th>
               <th  scope="col">Surname</th>
               <th  style="width: 2%" scope="col">Flat Number</th>
@@ -207,15 +206,14 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants";
+$sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
     while($row = $result->fetch_assoc()) {
 
                 echo '<tr>
-                  <td scope="row">' . $row["occID"]. '</td>
-                  <td>' . $row["Name"] .'</td>
+                  <td scope="row">' . $row["Name"] .'</td>
                   <td>' . $row["Surname"] .'</td>
                   <td> '.$row["doorNumber"] .'</td>
                   <td> '.$row["phoneNo"] .'</td>
@@ -253,7 +251,7 @@ if ($result->num_rows > 0) {
         <tbody>	
 <?php 	
 
-$sql = "SELECT * FROM occupants WHERE moveOutDate!=0000-00-00";	
+$sql = "SELECT * FROM users WHERE moveOutDate!=0000-00-00";	
 $result = $conn->query($sql);	
 if ($result->num_rows > 0) {	
 
@@ -265,7 +263,7 @@ if ($result->num_rows > 0) {
                   <td>' . $row["Surname"] .'</td>	
                   <td> '.$row["phoneNo"] .'</td>	
                   <td> '.$row["eMail"] .'</td>	
-                  <td> '.$row["feeDebth"] .'</td>	
+                  <td> '.$row["debt"] .'</td>	
                   <td> '.$row["moveOutDate"] .'</td>	
                 </tr>'; }	
 } else {	
@@ -302,7 +300,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE feeDebth!=0";
+$sql = "SELECT * FROM users WHERE debt!=0";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -314,7 +312,7 @@ if ($result->num_rows > 0) {
                   <td> '.$row["doorNumber"] .'</td>
                   <td> '.$row["phoneNo"] .'</td>
                   <td> '.$row["eMail"] .'</td>
-                  <td> '.$row["feeDebth"] .'</td>
+                  <td> '.$row["debt"] .'</td>
                   <td> '.$row["lastPayment"] .'</td>
                 </tr>'; }
 } else {

@@ -2,7 +2,7 @@
 require('db.php');
 include("authenticate.php");
 $occID=$_REQUEST['id'];
-$query = "SELECT * FROM occupants where occID='".$occID."'"; 
+$query = "SELECT * FROM users where userID='".$userID."'"; 
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 ?>
