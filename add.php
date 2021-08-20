@@ -137,8 +137,8 @@ h3 {
    box-shadow: 2px 5px 5px 0px #eee;
    max-width: 500px;
    padding-top: 10px;
-   height: 550px;
-   margin-top: 100px;
+   height: 650px;
+   margin-top: 30px;
 }
 
 .btn{
@@ -166,12 +166,14 @@ if(isset($_POST['new']) && $_POST['new']==1){
     $phoneNo = $_REQUEST['phoneNo'];
     $eMail = $_REQUEST['eMail'];
     $moveInDate = $_REQUEST['moveInDate'];
+    $moveOutDate = $_REQUEST['moveOutDate'];
+    $lastPayment = $_REQUEST['lastPayment'];
    
 
     
     $add="INSERT INTO users
-    (`Name`,`Surname`,`doorNumber`,`phoneNo`,`eMail`,`moveInDate`)values
-    ('$Name','$Surname','$doorNumber','$phoneNo','$eMail','$moveInDate')";
+    (`Name`,`Surname`,`doorNumber`,`phoneNo`,`eMail`,`moveInDate`,`moveOutDate`,`lastPayment`)values
+    ('$Name','$Surname','$doorNumber','$phoneNo','$eMail','$moveInDate','$moveOutDate','$lastPayment')";
     mysqli_query($conn,$add);
     $status = header('Location:view.php');
 }
@@ -197,8 +199,8 @@ if(isset($_POST['new']) && $_POST['new']==1){
 <p><label class="sName"><b>Surname:</b>
 <input type="text" name="Surname" placeholder="Enter Surname" required /></p>
 
-<p><label class="feed"><b>Fee Debth:</b>
-<input type="number" name="feeDebth" placeholder="Enter Fee Debth" ></p>
+<p><label class="feed"><b>Door Number:</b>
+<input type="number" name="doorNumber" placeholder="Enter Door Number" ></p>
 
 <p><label class="phone"><b>Phone No:</b>
 <input type="number" name="phoneNo" placeholder="Enter Phone No" ></p>
@@ -207,10 +209,15 @@ if(isset($_POST['new']) && $_POST['new']==1){
 <input type="email" name="eMail" placeholder="Enter E-Mail" ></p>
 
 <p><label class="mid"><b>Move In Date:</b></label>
-<input type="date" name="moveInDate" placeholder="Enter Move In Date" required /></p>
+<input type="date" name="moveInDate" placeholder="Enter Move In Date" ></p>
 
+<p><label class="mod"><b>Move Out Date:</b></label>
+<input type="date" name="moveOutDate" placeholder="Enter Move In Date" ></p>
 
-<p><input name="submit" type="submit" value="Submit" class="btn btn-warning"/></p>
+<p><label class="lpd"><b>Last Payment Date:</b></label>
+<input type="date" name="lastPayment" placeholder="Enter Last Payment Date" ></p>
+
+<p><input name="submit" type="submit" value="Submit" class="btn btn-warning"></p>
 </form>
 <p style="color=white; "><?php echo $status; ?></p>
 </div>

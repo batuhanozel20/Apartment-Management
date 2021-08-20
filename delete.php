@@ -2,8 +2,8 @@
  require('db.php');
 $delID= $_GET['id'];
  
-$result=mysqli_query($conn,"DELETE FROM occupants
-WHERE occID=".$delID);
+$result=mysqli_query($conn,"DELETE FROM users
+WHERE userID=".$delID);
  
 if($result>0){
 echo "Deleted Successfully";

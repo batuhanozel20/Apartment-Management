@@ -1,10 +1,10 @@
 <?php
 require('db.php');
 include("authenticate.php");
-$occID=$_REQUEST['id'];
+$userID=$_GET['id'];
 $query = "SELECT * FROM users where userID='".$userID."'"; 
 $result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
+$row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,6 @@ $row = mysqli_fetch_assoc($result);
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <meta charset="utf-8"/>
-    <title>Registration</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -24,7 +23,7 @@ $row = mysqli_fetch_assoc($result);
 	 background-repeat:no-repeat;
 	 background-size:cover;
 	 width:100%;
-	 height:100vh;
+	 
 	 overflow:auto;
 	 
 }
@@ -143,8 +142,8 @@ $row = mysqli_fetch_assoc($result);
    box-shadow: 2px 5px 5px 0px #eee;
    max-width: 500px;
    padding-top: 10px;
-   height: 800px;
-   margin-top: 166px;
+   height: 700px;
+   margin-top: 10px;
 }
 
 .contAfter{
@@ -188,44 +187,40 @@ $row = mysqli_fetch_assoc($result);
 <?php
 $status = "";
 
-if(isset($_REQUEST['occID']) )
+if(isset($_POST['submitOcc']) )
 {
     
 
-    $Name = stripslashes($_REQUEST['Name']);
-    $Name = mysqli_real_escape_string($conn, $Name);
+    $Name = ($_POST['Name']);
     
-    $Surname = stripslashes($_REQUEST['Surname']);
-    $Surname = mysqli_real_escape_string($conn, $Surname);
     
-    $userName = stripslashes($_REQUEST['userName']);
-    $userName = mysqli_real_escape_string($conn, $userName);
+    $Surname = ($_POST['Surname']);
     
-    $doorNumber = stripslashes($_REQUEST['doorNumber']);
-    $doorNumber = mysqli_real_escape_string($conn, $doorNumber);
     
-    $feeDebth = stripslashes($_REQUEST['feeDebth']);
-    $feeDebth = mysqli_real_escape_string($conn, $feeDebth);
-
-    $phoneNo = stripslashes($_REQUEST['phoneNo']);
-    $phoneNo = mysqli_real_escape_string($conn, $phoneNo);
+    $doorNumber = ($_POST['doorNumber']);
   
-    $eMail = stripslashes($_REQUEST['eMail']);
-    $eMail = mysqli_real_escape_string($conn, $eMail); 
+
+    $phoneNo = ($_POST['phoneNo']);
+    
   
-    $moveInDate = stripslashes($_REQUEST['moveInDate']);
-    $moveInDate = mysqli_real_escape_string($conn, $moveInDate);
+    $eMail = ($_POST['eMail']);
 
-    $moveOutDate = stripslashes($_REQUEST['moveOutDate']);
-    $moveOutDate = mysqli_real_escape_string($conn, $moveOutDate);
 
-    $lastPayment = stripslashes($_REQUEST['lastPayment']);
-    $lastPayment = mysqli_real_escape_string($conn, $lastPayment);
+    $debt = ($_POST['debt']);
+  
+  
+    $moveInDate = ($_POST['moveInDate']);
+  
 
+    $moveOutDate = ($_POST['moveOutDate']);
+
+
+    $lastPayment = ($_POST['lastPayment']);
     
 
-$upd="UPDATE occupants SET `Name`='$Name', `Surname`='$Surname', `userName`='$userName',`doorNumber`='$doorNumber',`feeDebth`='$feeDebth',`phoneNo`='$phoneNo',`eMail`='$eMail',`moveInDate`='$moveInDate',`moveOutDate`='$moveOutDate',`lastPayment`='$lastPayment'
- where occID='$occID'";
+
+$upd="UPDATE users SET `Name`='$Name', `Surname`='$Surname',`doorNumber`='$doorNumber',`phoneNo`='$phoneNo',`eMail`='$eMail',`debt`='$debt',`moveInDate`='$moveInDate',`moveOutDate`='$moveOutDate',`lastPayment`='$lastPayment'
+ where userID='$userID'";
 mysqli_query($conn, $upd);
 $status = header('Location:view.php');
 
@@ -233,10 +228,10 @@ $status = header('Location:view.php');
 ?>
 <div>
 <h1 class="header">Update an Occupant </h1>
-<form name="form" method="post" action=""> 
+<form name="form" method="POST" action=""> 
 
 <input type="hidden" name="new" value="1" />
-<input name="occID" type="hidden" value="<?php echo $row['occID'];?>" />
+<input name="occID" type="hidden" value="<?php echo $row['userID'];?>" />
 
 <p><label class="Name"><b>Name:</b>
 <input type="text" name="Name" placeholder="Enter Name"
@@ -246,17 +241,9 @@ $status = header('Location:view.php');
 <input type="text" name="Surname" placeholder="Enter Surname" 
  value="<?php echo $row['Surname'];?>" /></p>
 
-<p><label class="uName"><b>Username:</b>
-<input type="text" name="userName" placeholder="Enter User Name" 
- value="<?php echo $row['userName'];?>" /></p>
-
 <p><label class="dNum"><b>Door Number:</b>
 <input type="number" name="doorNumber" placeholder="Enter Door Number" 
  value="<?php echo $row['doorNumber'];?>" /></p>
-
-<p><label class="feed"><b>Fee Debth:</b>
-<input type="number" name="feeDebth" placeholder="Enter Fee Debth" 
- value="<?php echo $row['feeDebth'];?>" /></p>
 
 <p><label class="phone"><b>Phone No:</b>
 <input type="number" name="phoneNo" placeholder="Enter Phone Number" 
@@ -265,6 +252,10 @@ $status = header('Location:view.php');
 <p><label class="mail"><b>E-Mail:</b>
 <input type="email" name="eMail" placeholder="Enter E-Mail" 
  value="<?php echo $row['eMail'];?>" /></p>
+
+ <p><label class="feed"><b>Debt:</b>
+<input type="number" name="debt" placeholder="Enter Debt" 
+ value="<?php echo $row['debt'];?>" /></p>
 
 <p><label class="mid"><b>Move In Date:</b></label>
 <input type="date" name="moveInDate" placeholder="Enter Move In Date" 
@@ -275,11 +266,9 @@ $status = header('Location:view.php');
 <input type="date" name="moveOutDate" placeholder="Enter Move Out Date" 
  value="<?php echo $row['moveOutDate'];?>" /></p>
 
- <p><label class="lpd"><b>Last Payment Date:</b></label>
- <input type="date" name="lastPayment" placeholder="Enter Last Payment" 
+<p><label class="lpd"><b>Last Payment Date:</b></label>
+<input type="date" name="lastPayment" placeholder="Enter Last Payment Date" 
  value="<?php echo $row['lastPayment'];?>" /></p>
-
-
 
 <p><input name="submitOcc" class="btn btn-warning" type="submit" value="Update" /></p>
 </form>

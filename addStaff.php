@@ -90,7 +90,7 @@ p {
    box-shadow: 2px 5px 5px 0px #eee;
    max-width: 500px;
    padding-top: 10px;
-   height: 550px;
+   height: 450px;
    margin-top: 166px;
 }
 

@@ -57,12 +57,14 @@ th {
 <table style="background-color:#fff" border="1" align="center" width="500" >
 <thead>
 <tr>
-<th><strong>ID</strong></th>
+
 <th><strong>Name</strong></th>
 <th><strong>Surname</strong></th>
 <th><strong>Role</strong></th>
 <th><strong>Phone Number</strong></th>
 <th><strong>Salary</strong></th>
+<th><strong>Edit</strong></th>
+<th><strong>Delete</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -72,12 +74,17 @@ $count=1;
 $sel_query="SELECT * FROM staff ORDER BY id DESC;";
 $result = mysqli_query($conn,$sel_query);
 while($row = mysqli_fetch_assoc($result)) { ?>
-<tr><td align="center"><?php echo $count; ?></td>
+<tr>
 <td align="center"><?php echo $row["Name"]; ?></td>
 <td align="center"><?php echo $row["Surname"]; ?></td>
 <td align="center"><?php echo $row["Role"]; ?></td>
 <td align="center"><?php echo $row["phoneNo"]; ?></td>
 <td align="center"><?php echo $row["Salary"]; ?></td>
+
+
+<td align="center">
+<a href="updateStaff.php?id=<?php echo $row["id"]; ?>">Edit</a>
+</td>
 
 <td align="center">
 <a href="deleteStaff.php?id=<?php echo $row["id"]; ?>">Delete</a>

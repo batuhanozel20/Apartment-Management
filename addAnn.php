@@ -39,7 +39,7 @@
    box-shadow: 2px 5px 5px 0px #eee;
      max-width: 500px;
      padding-top: 10px;
-     height: 370px;
+     height: 300px;
      margin-top: 166px;
 }
 .annDate{

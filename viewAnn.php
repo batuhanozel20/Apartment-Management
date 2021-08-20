@@ -77,6 +77,7 @@ while($row = mysqli_fetch_assoc($result)) { ?>
 
 
 <td align="center">
+<a href="updateAnn.php?id=<?php echo $row["annID"]; ?>">Edit</a>
 <a href="deleteAnn.php?id=<?php echo $row["annID"]; ?>">Delete</a>
 </td>
 </tr>

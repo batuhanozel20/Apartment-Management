@@ -16,7 +16,7 @@
 	 background-repeat:no-repeat;
 	 background-size:cover;
 	 width:100%;
-	 height:100vh;
+	
 	 overflow:auto;
 }
 
@@ -201,6 +201,9 @@ if ($result->num_rows > 0) {
               <th  style="width: 2%" scope="col">Flat Number</th>
               <th  scope="col">Phone Number</th>
               <th  scope="col">E-Mail</th>
+              <th  scope="col">Debt</th>
+              <th  scope="col">Move In Date</th>
+              <th  scope="col">Move Out Date</th>
              </tr>
         </thead>
         <tbody>
@@ -218,6 +221,9 @@ if ($result->num_rows > 0) {
                   <td> '.$row["doorNumber"] .'</td>
                   <td> '.$row["phoneNo"] .'</td>
                   <td> '.$row["eMail"] .'</td>
+                  <td> '.$row["debt"] .'</td>
+                  <td> '.$row["moveInDate"] .'</td>
+                  <td> '.$row["moveOutDate"] .'</td>
                 </tr>'; }
 } else {
     echo "0 results";
@@ -365,7 +371,7 @@ if ($result->num_rows > 0) {
 </table>
 <br>     
 
-<div class="btn-group" style="margin-left: 800px;width:170px">	
+<div class="btn-group" style="margin-left: 600px;width:170px">	
 
   <button class="btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
     Total	
@@ -702,7 +708,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=1";
+$sql = "SELECT * FROM users WHERE doorNumber=1";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -748,7 +754,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=2";
+$sql = "SELECT * FROM users WHERE doorNumber=2";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -793,7 +799,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=3";
+$sql = "SELECT * FROM users WHERE doorNumber=3";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -837,7 +843,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=4";
+$sql = "SELECT * FROM users WHERE doorNumber=4";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -881,7 +887,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=5";
+$sql = "SELECT * FROM users WHERE doorNumber=5";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -925,7 +931,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=6";
+$sql = "SELECT * FROM users WHERE doorNumber=6";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -969,7 +975,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=7";
+$sql = "SELECT * FROM users WHERE doorNumber=7";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -1013,7 +1019,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=8";
+$sql = "SELECT * FROM users WHERE doorNumber=8";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -1057,7 +1063,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=9";
+$sql = "SELECT * FROM users WHERE doorNumber=9";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -1101,7 +1107,7 @@ if ($result->num_rows > 0) {
         <tbody>
 <?php 
 
-$sql = "SELECT * FROM occupants WHERE doorNumber=10";
+$sql = "SELECT * FROM users WHERE doorNumber=10";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  

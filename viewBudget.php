@@ -57,9 +57,10 @@ th {
 <table style="background-color:#fff" border="1" align="center" width="500" >
 <thead>
 <tr>
-<th><strong>ID</strong></th>
 <th><strong>Name</strong></th>
 <th><strong>Price</strong></th>
+<th><strong>Edit</strong></th>
+<th><strong>Delete</strong></th>
 
 
 </tr>
@@ -71,9 +72,13 @@ $count=1;
 $sel_query="SELECT * FROM budget WHERE year=2021 ORDER BY budID ASC;";
 $result = mysqli_query($conn,$sel_query);
 while($row = mysqli_fetch_assoc($result)) { ?>
-<tr><td align="center"><?php echo $count; ?></td>
+<tr>
 <td align="center"><?php echo $row["budName"]; ?></td>
 <td align="center"><?php echo $row["budPrice"]; ?></td>
+
+<td align="center">
+<a href="updateBudget.php?id=<?php echo $row["budID"]; ?>">Edit</a>
+</td>
 
 <td align="center">
 <a href="deleteBudget.php?id=<?php echo $row["budID"]; ?>">Delete</a>

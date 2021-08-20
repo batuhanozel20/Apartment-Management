@@ -1,8 +1,8 @@
 <?php
 require('db.php');
 include("authenticate.php");
-$budID=$_GET['id'];
-$query = "SELECT * FROM budget where budID='".$budID."'"; 
+$annID=$_GET['id'];
+$query = "SELECT * FROM announcement where annID='".$annID."'"; 
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 ?>
@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($result);
 	 padding-top:10px;
 }
 
-.budName{
+.aID{
 	 margin-left: 1px;
    font-family: sans-serif;
    font-size: 18px;
@@ -44,7 +44,7 @@ $row = mysqli_fetch_array($result);
    padding-left: 0px;
    
 }
-.budPrice{
+.aDate{
 	 margin-left: 1px;
    font-family: sans-serif;
    font-size: 18px;
@@ -54,7 +54,7 @@ $row = mysqli_fetch_array($result);
    
 }
 
-.budID{
+.a{
 	 margin-left: 1px;
    font-family: sans-serif;
    font-size: 18px;
@@ -116,49 +116,49 @@ $row = mysqli_fetch_array($result);
 <div class="container">
 <div class="form">
 <p> 
-<a href="addBudget.php" class="btn btn-warning">Add New</a> 
+<a href="addAnn.php" class="btn btn-warning">Add New</a> 
 <a href="login.php" class="btn btn-warning">Logout</a></p>
 
 <?php
 $status = "";
 
-if(isset($_POST['submitBudget']) )
+if(isset($_POST['submitAnn']) )
 {
     
 
-    $budID = ($_POST['budID']);
+    $annID = ($_POST['annID']);
     
     
-    $budName = ($_POST['budName']);
+    $annDate = ($_POST['annDate']);
     
     
-    $budPrice = ($_POST['budPrice']);
+    $ann = ($_POST['ann']);
   
 
     
-$upd="UPDATE budget SET `budName`='$budName', `budPrice`='$budPrice'
- where budID='$budID'";
+$upd="UPDATE announcement SET `annDate`='$annDate', `ann`='$ann'
+ where annID='$annID'";
 mysqli_query($conn, $upd);
-$status = header('Location:viewBudget.php');
+$status = header('Location:viewAnn.php');
 
 }else {
 ?>
 <div>
-<h1 class="header">Update Budget </h1>
+<h1 class="header">Update Announcewment </h1>
 <form name="form" method="POST" action=""> 
 
 <input type="hidden" name="new" value="1" />
-<input name="budID" type="hidden" value="<?php echo $row['budID'];?>" />
+<input name="annID" type="hidden" value="<?php echo $row['annID'];?>" />
 
-<p><label class="budName"><b>Budget Name:</b>
-<input type="text" name="budName" placeholder="Enter Budget Name"
- value="<?php echo $row['budName'];?>" /></p>
+<p><label class="aDate"><b>Announcement Date:</b>
+<input type="date" name="annDate" placeholder="Enter Announcement Date"
+ value="<?php echo $row['annDate'];?>" /></p>
 
-<p><label class="budPrice"><b>Budget Price:</b>
-<input type="number" name="budPrice" placeholder="Enter Budget Price" 
- value="<?php echo $row['budPrice'];?>" /></p>
+<p><label class="a"><b>Announcement:</b>
+<input type="text" name="ann" placeholder="Enter Announcement" 
+ value="<?php echo $row['ann'];?>" /></p>
 
-<p><input name="submitBudget" class="btn btn-warning" type="submit" value="Update" /></p>
+<p><input name="submitAnn" class="btn btn-warning" type="submit" value="Update" /></p>
 </form>
 <?php } ?>
 </div>

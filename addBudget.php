@@ -60,7 +60,7 @@ p {
    box-shadow: 2px 5px 5px 0px #eee;
    max-width: 500px;
    padding-top: 10px;
-   height: 380px;
+   height: 350px;
    margin-top: 166px;
 }
 .btn{
